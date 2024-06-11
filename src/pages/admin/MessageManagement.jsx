@@ -7,6 +7,7 @@ import RenderAttachment from "../../components/shared/RenderAttachment";
 import Table from '../../components/shared/Table';
 import { useErrors } from '../../hooks/hook';
 import { fileFormat, transformImage } from '../../lib/features';
+import { server } from "../../constants/config";
 
 const columns = [
     {
@@ -85,7 +86,7 @@ const columns = [
 
 const MessageManagement = () => {
     const { loading, data, error } = useFetchData(
-        `http://localhost:3000/api/v1/admin/messages`,
+        `${server}/api/v1/admin/messages`,
         "dashboard-messages"
     );
 

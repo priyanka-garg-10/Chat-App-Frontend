@@ -7,9 +7,10 @@ import AdminLayout from '../../components/layout/AdminLayout';
 import { DoughnutChart, LineChart } from '../../components/specific/Charts';
 import { CurveButton, SearchField } from '../../components/styles/StyledComponents';
 import { useErrors } from '../../hooks/hook';
+import { server } from "../../constants/config";
 
 const Dashboard = () => {
-    const { loading, data, error } = useFetchData(`http://localhost:3000/api/v1/admin/stats`, "dashboard-stats");
+    const { loading, data, error } = useFetchData(`${server}/api/v1/admin/stats`, "dashboard-stats");
 
     const { stats } = data || {};
 

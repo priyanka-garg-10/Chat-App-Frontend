@@ -10,6 +10,7 @@ import { userExists, userNotExists } from './redux/reducers/auth';
 import { Toaster } from 'react-hot-toast';
 import { SocketProvider } from './socket';
 
+
 const AdminLogin = lazy(() => import('./pages/admin/AdminLogin'));
 const Dashboard = lazy(() => import('./pages/admin/Dashboard'));
 const UseManagement = lazy(() => import('./pages/admin/UseManagement'));
@@ -32,7 +33,7 @@ const App = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:3000/api/v1/user/me`, { withCredentials: true })
+      .get(`${server}/api/v1/user/me`, { withCredentials: true })
       .then(({ data }) => dispatch(userExists(data.user)))
       .catch((err) => dispatch(userNotExists()));
   }, [dispatch]);
