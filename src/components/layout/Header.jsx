@@ -9,6 +9,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { userNotExists } from '../../redux/reducers/auth';
 import { setIsMobile, setIsSearch, setIsNotification, setIsNewGroup } from '../../redux/reducers/misc';
 import { resetNotificationCount } from '../../redux/reducers/chat';
+import { server } from '../../constants/config';
 
 const SearchDialog = lazy(() => import("../specific/Search"));
 const NotificationDialog = lazy(() => import("../specific/Notifications"));
@@ -38,7 +39,7 @@ const Header = () => {
 
     const logoutHandler = async () => {
         try {
-            const { data } = await axios.get(`http://localhost:3000/api/v1/user/logout`, {
+            const { data } = await axios.get(`${server}/api/v1/user/logout`, {
                 withCredentials: true
             });
             dispatch(userNotExists());
