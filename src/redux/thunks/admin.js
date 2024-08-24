@@ -12,7 +12,7 @@ const adminLogin = createAsyncThunk("admin/login", async (secretKey) => {
         }
 
         const { data } = await axios.post(
-            `http://localhost:3000/api/v1/admin/verify`,
+            `${server}/api/v1/admin/verify`,
             { secretKey },
             config
         )
